@@ -1,11 +1,11 @@
 log:
-  log_dir: 'log'
-  chkpt_dir: 'chkpt'
+  log_dir: '/kaggle/working/log'
+  chkpt_dir: '/kaggle/working/chkpt'
 
 
 arcface:
-  chkpt_path: 'Arcface.pth'
-  vector_size: 256
+  chkpt_path: '/kaggle/working/backbone.pth'
+  vector_size: 512
 
 data:
   dataset_dir: '/kaggle/input/ffhq-1024x1024'
