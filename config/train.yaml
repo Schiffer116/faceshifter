@@ -8,8 +8,8 @@ arcface:
   vector_size: 256
 
 data:
-  dataset_dir: ''
-  valset_dir: ''
+  dataset_dir: '/kaggle/input/ffhq-1024x1024'
+  valset_dir: '/kaggle/input/celebahq-resized-256x256'
 
 model:
   learning_rate_E_G: 4e-4
