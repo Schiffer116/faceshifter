@@ -4,7 +4,7 @@ log:
 
 
 arcface:
-  chkpt_path: '/kaggle/working/backbone.pth'
+  chkpt_path: '/kaggle/input/backbone.pth'
   vector_size: 512
 
 data:
