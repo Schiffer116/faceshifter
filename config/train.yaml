@@ -4,12 +4,12 @@ log:
 
 
 arcface:
-  chkpt_path: '/kaggle/input/backbone.pth'
+  chkpt_path: '/kaggle/input/preprocessed-faceshifter/backbone.pth'
   vector_size: 512
 
 data:
-  dataset_dir: '/kaggle/input/ffhq-1024x1024'
-  valset_dir: '/kaggle/input/celebahq-resized-256x256'
+  dataset_dir: '/kaggle/input/preprocessed-faceshifter/train/train'
+  valset_dir: '/kaggle/input/preprocessed-faceshifter/valid/valid'
 
 model:
   learning_rate_E_G: 4e-4
