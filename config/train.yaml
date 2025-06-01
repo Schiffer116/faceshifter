@@ -4,7 +4,7 @@ log:
 
 
 arcface:
-  chkpt_path: '/kaggle/input/preprocessed-faceshifter/backbone.pth'
+  chkpt_path: '/kaggle/input/preprocessed-faceshifter/model_ir_se50.pth'
   vector_size: 256
 
 data:
