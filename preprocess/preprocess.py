@@ -18,8 +18,6 @@ args = parser.parse_args()
 output_size = 256
 transform_size = 4096
 enable_padding = True
-detector = dlib.get_frontal_face_detector()
-sp = dlib.shape_predictor('shape_predictor_68_face_landmarks.dat')
 torch.backends.cudnn.benchmark = False
 os.makedirs(args.output_dir, exist_ok=True)
 
@@ -72,7 +70,7 @@ def process_image(index_imgfile):
         quad = np.stack([c - x - y, c - x + y, c + x + y, c + x - y])
         qsize = np.hypot(*x) * 2
 
-        img = Image.open(img_file).convert("RGB")
+        img = Image.fromarray(img).convert("RGB")
 
         shrink = int(np.floor(qsize / output_size * 0.5))
         if shrink > 1:
@@ -135,6 +133,11 @@ def process_image(index_imgfile):
         print(f"[{index}] Error: {e}")
 
 
+def init_worker():
+    global detector, sp
+    detector = dlib.get_frontal_face_detector()
+    sp = dlib.shape_predictor('shape_predictor_68_face_landmarks.dat')
+
 if __name__ == "__main__":
-    with Pool(args.workers) as pool:
+    with Pool(args.workers, initializer=init_worker) as pool:
         list(tqdm(pool.imap_unordered(process_image, enumerate(img_files)), total=len(img_files)))
